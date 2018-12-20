@@ -1,0 +1,83 @@
+.tree-table-item i {
+    vertical-align: middle !important;
+    cursor: pointer;
+}
+
+.tree-table-item span {
+    vertical-align: middle !important;
+}
+
+.tree-table-item.tree-close>* {
+    display: none;
+}
+
+/* fallback */
+
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url("./font/material.woff2") format('woff2');
+}
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 24px;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-feature-settings: 'liga';
+    -webkit-font-smoothing: antialiased;
+}
+
+.sky.tree-table>.tree-table-item:nth-child(odd) {
+    background: #b3e5fc;
+    color: black;
+}
+
+.sky.tree-table>.tree-table-item:nth-child(even) {
+    background: #e6ffff;
+    color: black;
+}
+.sky.tree-table>.tree-table-item:hover {
+    background: #82b3c9;
+    color: white;
+}
+
+.sky.tree-table>.tree-table-item.select {
+    background: #82b3c9;
+    color: white;
+    border-left: 3px solid darkred;
+}
+
+.small-font > .tree-table-item >  span{
+    font-size: 12px !important;
+    line-height: 16px !important;
+}
+.medium-font > .tree-table-item >  span{
+    font-size: 14px !important;
+    line-height: 18px !important;
+}
+.large-font > .tree-table-item >  span{
+    font-size: 16px !important;
+    line-height: 20px !important;
+}
+
+.small-font > .tree-table-item > i{
+    font-size: 12px !important;
+    line-height: 16px !important;
+}
+.medium-font > .tree-table-item >  i{
+    font-size: 14px !important;
+    line-height: 18px !important;
+}
+.large-font > .tree-table-item >  i{
+    font-size: 16px !important;
+    line-height: 20px !important;
+}
