@@ -1,4 +1,5 @@
-# This repo contains plugin for creating Tree structure based on JSON data
+# Material Tree
+This repo contains plugin for creating Tree structure based on JSON data
 
 ## Features
 ```
