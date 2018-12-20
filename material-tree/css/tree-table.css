@@ -8,7 +8,7 @@
 }
 
 .tree-table-item.tree-close>* {
-    display: none;
+    display: none; 
 }
 
 /* fallback */

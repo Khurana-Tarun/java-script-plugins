@@ -9,18 +9,39 @@
         var currentSelectedRow = -1;
         var settings = $.extend({
             materialIcons: true,
-            openIcon: "remove",
-            closeIcon: "add",
+            iconTheme : "lock",
             margin: "small", //In Percentage
             data: [],
-            theme: "sky", // sky, grass, water, light, dark
+            colorTheme: "sky", // sky, grass, water, light, dark
             attachKeyboadEvent: true,
             font: "large",
             padding: "small",
             pointed: false,
             layered: true
-
         }, options);
+
+        iconTheme = {
+            math : {
+                openIcon: "remove",
+                closeIcon: "add"
+            },
+            keyboard : {
+                openIcon: "keyboard_arrow_down",
+                closeIcon: "keyboard_arrow_right"
+            },
+            arrow : {
+                openIcon: "arrow_downward",
+                closeIcon: "arrow_forward"
+            },
+            triangle : {
+                openIcon: "arrow_drop_down",
+                closeIcon: "arrow_right"
+            },
+            lock : {
+                openIcon: "lock_open",
+                closeIcon: "lock"
+            }
+        }
 
         var margin = {
             small: 2,
@@ -90,7 +111,7 @@
                 }
                 tIndex++;
             }
-            icon.innerText = settings.openIcon;
+            icon.innerText = iconTheme[settings.iconTheme].openIcon;
         }
 
         function closeChild(index, icon) {
@@ -111,12 +132,12 @@
                 }
                 tIndex++;
             }
-            icon.innerText = settings.closeIcon;
+            icon.innerText = iconTheme[settings.iconTheme].closeIcon;
         }
 
         function createIcon(data) {
             let temp = document.createElement("i");
-            temp.innerText = settings.openIcon;
+            temp.innerText = iconTheme[settings.iconTheme].openIcon;
             temp.classList.add("material-icons");
             temp.addEventListener("click", toggleChild);
             return temp;
@@ -144,7 +165,7 @@
         }
 
         parent.classList.add("tree-table");
-        parent.classList.add(settings.theme);
+        parent.classList.add(settings.colorTheme);
         parent.classList.add(fontSize[settings.font]);
         parent.style.margin = padding[settings.padding];
         if (!settings.pointed) {
