@@ -8,8 +8,7 @@
         var parent = this["0"];
         var currentSelectedRow = -1;
         var settings = $.extend({
-            materialIcons: true,
-            iconTheme : "lock",
+            iconTheme: "arrow",
             margin: "small", //In Percentage
             data: [],
             colorTheme: "sky", // sky, grass, water, light, dark
@@ -17,29 +16,38 @@
             font: "large",
             padding: "small",
             pointed: false,
-            layered: true
+            layered: true,
+            labelIconTheme: "file"
         }, options);
 
         iconTheme = {
-            math : {
+            math: {
                 openIcon: "remove",
                 closeIcon: "add"
             },
-            keyboard : {
+            keyboard: {
                 openIcon: "keyboard_arrow_down",
                 closeIcon: "keyboard_arrow_right"
             },
-            arrow : {
+            arrow: {
                 openIcon: "arrow_downward",
                 closeIcon: "arrow_forward"
             },
-            triangle : {
+            triangle: {
                 openIcon: "arrow_drop_down",
                 closeIcon: "arrow_right"
             },
-            lock : {
+            lock: {
                 openIcon: "lock_open",
                 closeIcon: "lock"
+            }
+        }
+
+        labelIconTheme = {
+            file: {
+                rootIcon: "folder",
+                parentIcon: "folder",
+                leafIcon: "insert_drive_file"
             }
         }
 
@@ -84,10 +92,6 @@
                 parent.setAttribute("data-state", "open");
                 openChild(index, icon);
             }
-
-            // let isOpen = parent.classList.contains("tree-open");
-            // isOpen ? closeChild(index, icon) : openChild(index, icon);
-
         }
 
 
@@ -163,19 +167,6 @@
             temp.style.paddingLeft = padding + "%";
             parent.appendChild(temp);
         }
-
-        parent.classList.add("tree-table");
-        parent.classList.add(settings.colorTheme);
-        parent.classList.add(fontSize[settings.font]);
-        parent.style.margin = padding[settings.padding];
-        if (!settings.pointed) {
-            parent.style.borderRadius = padding[settings.padding];
-        }
-        if (settings.layered) {
-            parent.style.boxShadow = "10px 10px 20px black";
-        }
-        createRow(settings.data, 0);
-
         function clickHandler(event) {
             var position = event.currentTarget.getAttribute("data-position");
             if (currentSelectedRow != -1) {
@@ -198,12 +189,24 @@
             } else if (keyName === 'ArrowUp' || keyName === 'ArrowLeft') {
                 if (currentSelectedRow == -1 || currentSelectedRow == 0) {
                     currentSelectedRow = state.length - 1;
-                }else {
+                } else {
                     currentSelectedRow--;
                 }
-            } 
+            }
             state[currentSelectedRow].object.classList.add("select");
         }
+        parent.innerHTML = "";
+        parent.classList.add("tree-table");
+        parent.classList.add(settings.colorTheme);
+        parent.classList.add(fontSize[settings.font]);
+        parent.style.margin = padding[settings.padding];
+        if (!settings.pointed) {
+            parent.style.borderRadius = padding[settings.padding];
+        }
+        if (settings.layered === true) {
+            parent.classList.add("tree-layered");
+        }
+        createRow(settings.data, 0);
         parent.addEventListener("keyup", keyHandler, false);
         parent.setAttribute("tabindex", 0);
 

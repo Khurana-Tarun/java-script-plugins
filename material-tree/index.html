@@ -1,7 +1,7 @@
 <html>
 
 <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
@@ -13,11 +13,80 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <link href="./css/tree-table.css" rel="stylesheet">
-    
+    <title>Material Tree</title>
+    <style type="text/css">
+        .change {
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            position: relative;
+        }
+
+        .change {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-content: center;
+            margin: 20px;
+            border: 2px solid black;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .change>span {
+            background: red;
+            color: white;
+            border-radius: 5px 5px 5px 5px;
+            box-shadow: 3px 3px 5px black;
+            padding: 10px;
+            cursor: pointer;
+            line-height: 20px;
+            font-size: 18px;
+            vertical-align: middle;
+        }
+    </style>
 </head>
 
 <body>
     <div class="check"></div>
+    <div check="change">
+        <div class="change">
+            <div>
+                <h3>Change Font Size</h3>
+            </div>
+            <span onclick="changeFont(0)">Small</span>
+            <span onclick="changeFont(1)">Medium</span>
+            <span onclick="changeFont(2)">Large</span>
+        </div>
+        <div class="change">
+            <div>
+                <h3>Change closing Icon Theme
+                </h3>
+            </div>
+            <span onclick="changeIcon(0)">Math</span>
+            <span onclick="changeIcon(1)">Keyboard</span>
+            <span onclick="changeIcon(2)">Arrow</span>
+            <span onclick="changeIcon(3)">Triangle</span>
+            <span onclick="changeIcon(4)">Lock</span>
+        </div>
+        <div class="change">
+            <div>
+                <h3>Parent Child Spacing
+                </h3>
+            </div>
+            <span onclick="changeMargin(0)">Small</span>
+            <span onclick="changeMargin(1)">Medium</span>
+            <span onclick="changeMargin(2)">Large</span>
+        </div>
+        <div class="change">
+            <div>
+                <h3>Layered [3D]
+                </h3>
+            </div>
+            <span onclick="isLayered(0)">True</span>
+            <span onclick="isLayered(1)">False</span>
+        </div>
+    </div>
 
     <script type="text/javascript">
         var data = [
@@ -60,7 +129,50 @@
                 label: "Parent 2",
                 icon: null
             }];
-        $(".check").tableTree({ data: data});
+        $(".check").tableTree({ data: data, iconTheme: "arrow" });
+
+        var changeFont = function (index) {
+            $(".check")[0].className = "check";
+            if (index == 0) {
+                $(".check").tableTree({ data: data, font: "small" });
+            } else if (index == 1) {
+                $(".check").tableTree({ data: data, font: "medium" });
+            } else {
+                $(".check").tableTree({ data: data, font: "large" });
+            }
+        }
+        var changeIcon = function (index) {
+            $(".check")[0].className = "check";
+            if (index == 0) {
+                $(".check").tableTree({ data: data, iconTheme: "math" });
+            } else if (index == 1) {
+                $(".check").tableTree({ data: data, iconTheme: "keyboard" });
+            } else if (index == 2) {
+                $(".check").tableTree({ data: data, iconTheme: "arrow" });
+            } else if (index == 3) {
+                $(".check").tableTree({ data: data, iconTheme: "triangle" });
+            } else if (index == 4) {
+                $(".check").tableTree({ data: data, iconTheme: "lock" });
+            }
+        }
+        var changeMargin = function (index) {
+            $(".check")[0].className = "check";
+            if (index == 0) {
+                $(".check").tableTree({ data: data, margin: "small" });
+            } else if (index == 1) {
+                $(".check").tableTree({ data: data, margin: "medium" });
+            } else {
+                $(".check").tableTree({ data: data, margin: "large" });
+            }
+        }
+        var isLayered = function (index) {
+            $(".check")[0].className = "check";
+            if (index == 0) {
+                $(".check").tableTree({ data: data, layered: true });
+            } else if (index == 1) {
+                $(".check").tableTree({ data: data, layered: false });
+            }
+        }
     </script>
 </body>
 
