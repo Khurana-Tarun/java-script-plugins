@@ -86,6 +86,14 @@
             <span onclick="isLayered(0)">True</span>
             <span onclick="isLayered(1)">False</span>
         </div>
+        <div class="change">
+                <div>
+                    <h3>Theme
+                    </h3>
+                </div>
+                <span onclick="changeTheme(0)">Sky</span>
+                <span onclick="changeTheme(1)">Blood</span>
+            </div>
     </div>
 
     <script type="text/javascript">
@@ -112,6 +120,11 @@
                         children: [
                             {
                                 label: "Child 2-1-1",
+                                icon: null,
+                                children: null
+                            },
+                            {
+                                label: "Child 2-1-2",
                                 icon: null,
                                 children: null
                             }]
@@ -171,6 +184,14 @@
                 $(".check").tableTree({ data: data, layered: true });
             } else if (index == 1) {
                 $(".check").tableTree({ data: data, layered: false });
+            }
+        }
+        var changeTheme = function (index) {
+            $(".check")[0].className = "check";
+            if (index == 0) {
+                $(".check").tableTree({ data: data, colorTheme: "sky" });
+            } else if (index == 1) {
+                $(".check").tableTree({ data: data, colorTheme: "blood" });
             }
         }
     </script>

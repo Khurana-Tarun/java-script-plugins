@@ -36,6 +36,21 @@
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
+.tree-table::after, ::before {
+   display: none !important;
+}
+.tree-table:focus{
+    outline: -webkit-focus-ring-color auto 0px !important;
+}
+.tree-table-item{
+    padding: 5px;
+}
+.tree-table-item:first-child {
+    border-radius: 5px 5px 0px 0px;
+}
+.tree-table-item:last-child {
+    border-radius: 0px 0px 5px 5px;
+}
 
 .sky.tree-table>.tree-table-item:nth-child(odd) {
     background: #b3e5fc;
@@ -54,8 +69,33 @@
 .sky.tree-table>.tree-table-item.select {
     background: #82b3c9;
     color: white;
-    border-left: 3px solid darkred;
+    border-left: 3px solid white;
+    box-shadow: 1px 1px 10px white;
+    margin-bottom: 2px;
 }
+
+.blood.tree-table>.tree-table-item:nth-child(odd) {
+    background: #d50000;
+    color: white;
+}
+
+.blood.tree-table>.tree-table-item:nth-child(even) {
+    background: #ff5131;
+    color: white;
+}
+.blood.tree-table>.tree-table-item:hover {
+    background: #9b0000;
+    color: white;
+}
+
+.blood.tree-table>.tree-table-item.select {
+    background: #9b0000;
+    color: black;
+    border-left: 3px solid white;
+    box-shadow: 1px 1px 10px white;
+    margin-bottom: 2px;
+}
+
 
 .small-font > .tree-table-item >  span{
     font-size: 12px !important;
