@@ -42,9 +42,6 @@
 .tree-table:focus{
     outline: -webkit-focus-ring-color auto 0px !important;
 }
-.tree-table-item{
-    padding: 5px;
-}
 .tree-table-item:first-child {
     border-radius: 5px 5px 0px 0px;
 }
