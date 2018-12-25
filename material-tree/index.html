@@ -93,6 +93,7 @@
                 </div>
                 <span onclick="changeTheme(0)">Sky</span>
                 <span onclick="changeTheme(1)">Blood</span>
+                <span onclick="changeTheme(2)">Grass</span>
             </div>
     </div>
 
@@ -192,6 +193,8 @@
                 $(".check").tableTree({ data: data, colorTheme: "sky" });
             } else if (index == 1) {
                 $(".check").tableTree({ data: data, colorTheme: "blood" });
+            } else if (index == 2) {
+                $(".check").tableTree({ data: data, colorTheme: "grass" });
             }
         }
     </script>

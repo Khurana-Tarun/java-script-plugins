@@ -12,8 +12,8 @@ This repo contains plugin for creating Tree structure based on JSON data
 ## Currently available themes
 ```
 1. Sky
-2. Blood [Coming soon]
-3. Grass [Coming soon]
+2. Blood
+3. Grass
 4. Water [Coming soon]
 5. Fire  [Coming soon]
 ```
@@ -23,7 +23,7 @@ This repo contains plugin for creating Tree structure based on JSON data
 1. Open and close icons  [ iconTheme : math | keyboard | arrow | triangle | lock]
 2. Margin of Tree [margin: small | medium | large]
 3. Json data for Tree [data : {}]
-4. Color  [ colorTheme: sky]
+4. Color  [ colorTheme: sky | blood | grass]
 5. Keyboard Events [attachKeyboadEvent : true | false]
 6. Font Size [font: small | medium | large]
 7. Spacing from parent to child [padding : small | medium | large]

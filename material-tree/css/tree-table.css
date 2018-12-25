@@ -94,6 +94,29 @@
 }
 
 
+.grass.tree-table>.tree-table-item:nth-child(odd) {
+    background: #c8e6c9;
+    color: black;
+}
+
+.grass.tree-table>.tree-table-item:nth-child(even) {
+    background: #fbfffc;
+    color: black;
+}
+.grass.tree-table>.tree-table-item:hover {
+    background: #97b498;
+    color: white;
+}
+
+.grass.tree-table>.tree-table-item.select {
+    background: #97b498;
+    color: black;
+    border-left: 3px solid #d81b60;
+    box-shadow: 1px 1px 10px white;
+    margin-bottom: 2px;
+}
+
+
 .small-font > .tree-table-item >  span{
     font-size: 12px !important;
     line-height: 16px !important;
