@@ -1,4 +1,4 @@
-<html>
+<!doctype html>
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
@@ -94,6 +94,8 @@
                 <span onclick="changeTheme(0)">Sky</span>
                 <span onclick="changeTheme(1)">Blood</span>
                 <span onclick="changeTheme(2)">Grass</span>
+                <span onclick="changeTheme(3)">Water</span>
+                <span onclick="changeTheme(4)">Fire</span>
             </div>
     </div>
 
@@ -195,6 +197,10 @@
                 $(".check").tableTree({ data: data, colorTheme: "blood" });
             } else if (index == 2) {
                 $(".check").tableTree({ data: data, colorTheme: "grass" });
+            }else if (index == 3) {
+                $(".check").tableTree({ data: data, colorTheme: "water" });
+            } else if (index == 4) {
+                $(".check").tableTree({ data: data, colorTheme: "fire" });
             }
         }
     </script>

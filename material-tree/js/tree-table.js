@@ -81,19 +81,18 @@
         }
 
         function toggleChild(event) {
-            let parent = event.currentTarget.parentElement;
-            let state = parent.getAttribute("data-state");
+            let parentElm = event.currentTarget.parentElement;
+            let state = parentElm.getAttribute("data-state");
             let icon = event.currentTarget;
-            let index = parent.getAttribute("data-position");
+            let index = parentElm.getAttribute("data-position");
             if (state && state == "open") {
-                parent.setAttribute("data-state", "close");
+                parentElm.setAttribute("data-state", "close");
                 closeChild(index, icon);
             } else {
-                parent.setAttribute("data-state", "open");
+                parentElm.setAttribute("data-state", "open");
                 openChild(index, icon);
             }
         }
-
 
         function openChild(index, icon) {
             let level = state[index].level;
@@ -150,6 +149,7 @@
         function createLabel(data, level, haveChild, style) {
             let temp = document.createElement("div");
             temp.classList.add("tree-table-item");
+            temp.classList.add("visible");
             temp.setAttribute("data-position", state.length);
             let spanElm = document.createElement("span");
             spanElm.innerText = data;
@@ -159,7 +159,7 @@
                 temp.appendChild(iconElm);
                 temp.setAttribute("data-state", "open");
             }
-            temp.append(spanElm);
+            temp.appendChild(spanElm);
             state.push({ object: temp, level: level });
             temp.addEventListener("click", clickHandler);
 

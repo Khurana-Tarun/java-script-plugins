@@ -9,7 +9,7 @@
 }
 
 .tree-table-item.tree-close>* {
-    display: none; 
+    display: none;
 }
 
 /* fallback */
@@ -36,15 +36,20 @@
     -webkit-font-feature-settings: 'liga';
     -webkit-font-smoothing: antialiased;
 }
-.tree-table::after, ::before {
-   display: none !important;
+
+.tree-table::after,
+::before {
+    display: none !important;
 }
-.tree-table:focus{
+
+.tree-table:focus {
     outline: -webkit-focus-ring-color auto 0px !important;
 }
+
 .tree-table-item:first-child {
     border-radius: 5px 5px 0px 0px;
 }
+
 .tree-table-item:last-child {
     border-radius: 0px 0px 5px 5px;
 }
@@ -58,6 +63,7 @@
     background: #e6ffff;
     color: black;
 }
+
 .sky.tree-table>.tree-table-item:hover {
     background: #82b3c9;
     color: white;
@@ -80,6 +86,7 @@
     background: #ff5131;
     color: white;
 }
+
 .blood.tree-table>.tree-table-item:hover {
     background: #9b0000;
     color: white;
@@ -93,7 +100,6 @@
     margin-bottom: 2px;
 }
 
-
 .grass.tree-table>.tree-table-item:nth-child(odd) {
     background: #c8e6c9;
     color: black;
@@ -103,6 +109,7 @@
     background: #fbfffc;
     color: black;
 }
+
 .grass.tree-table>.tree-table-item:hover {
     background: #97b498;
     color: white;
@@ -116,29 +123,78 @@
     margin-bottom: 2px;
 }
 
+.water.tree-table>.tree-table-item:nth-child(odd) {
+    background: #659be8;
+    color: black;
+}
 
-.small-font > .tree-table-item >  span{
+.water.tree-table>.tree-table-item:nth-child(even) {
+    background: #9accff;
+    color: black;
+}
+
+.water.tree-table>.tree-table-item:hover {
+    background: #296db5;
+    color: white;
+}
+
+.water.tree-table>.tree-table-item.select {
+    background: #296db5;
+    color: white;
+    border-left: 3px solid white;
+    box-shadow: 1px 1px 10px 49599a;
+    margin-bottom: 2px;
+}
+
+.fire.tree-table>.tree-table-item:nth-child(odd) {
+    background: #fbc02d;
+    color: black;
+}
+
+.fire.tree-table>.tree-table-item:nth-child(even) {
+    background: #fff263;
+    color: black;
+}
+
+.fire.tree-table>.tree-table-item:hover {
+    background: #c49000;
+    color: white;
+}
+
+.fire.tree-table>.tree-table-item.select {
+    background: #c49000;
+    color: white;
+    border-left: 3px solid #ff6f00;
+    box-shadow: 1px 1px 10px 49599a;
+    margin-bottom: 2px;
+}
+
+.small-font>.tree-table-item>span {
     font-size: 12px !important;
     line-height: 16px !important;
 }
-.medium-font > .tree-table-item >  span{
+
+.medium-font>.tree-table-item>span {
     font-size: 14px !important;
     line-height: 18px !important;
 }
-.large-font > .tree-table-item >  span{
+
+.large-font>.tree-table-item>span {
     font-size: 16px !important;
     line-height: 20px !important;
 }
 
-.small-font > .tree-table-item > i{
+.small-font>.tree-table-item>i {
     font-size: 12px !important;
     line-height: 16px !important;
 }
-.medium-font > .tree-table-item >  i{
+
+.medium-font>.tree-table-item>i {
     font-size: 14px !important;
     line-height: 18px !important;
 }
-.large-font > .tree-table-item >  i{
+
+.large-font>.tree-table-item>i {
     font-size: 16px !important;
     line-height: 20px !important;
 }
