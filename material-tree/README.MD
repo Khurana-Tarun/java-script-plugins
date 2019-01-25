@@ -42,6 +42,6 @@ This repo contains plugin for creating Tree structure based on JSON data
 ## Step for Using it
 ```
 1. Download or clone the repo
-2. Open index.html
-3. Start palying 
+2. Open index.html [Tested on Chrome and IE]
+3. Start playing 
 ```
