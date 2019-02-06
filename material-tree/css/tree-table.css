@@ -70,8 +70,8 @@
 }
 
 .sky.tree-table>.tree-table-item:hover {
-    background: #82b3c9;
-    color: white;
+    background: #82b3c9 !important;
+    color: white !important;
 }
 
 .sky.tree-table>.tree-table-item.select {
@@ -98,8 +98,8 @@
 }
 
 .blood.tree-table>.tree-table-item:hover {
-    background: #9b0000;
-    color: white;
+    background: #9b0000 !important;
+    color: white !important;
 }
 
 .blood.tree-table>.tree-table-item.select {
@@ -126,8 +126,8 @@
 }
 
 .grass.tree-table>.tree-table-item:hover {
-    background: #97b498;
-    color: white;
+    background: #97b498 !important;
+    color: white !important;
 }
 
 .grass.tree-table>.tree-table-item.select {
@@ -154,8 +154,8 @@
 }
 
 .water.tree-table>.tree-table-item:hover {
-    background: #296db5;
-    color: white;
+    background: #296db5 !important;
+    color: white !important;
 }
 
 .water.tree-table>.tree-table-item.select {
@@ -182,8 +182,8 @@
 }
 
 .fire.tree-table>.tree-table-item:hover {
-    background: #c49000;
-    color: white;
+    background: #c49000 !important;
+    color: white !important;
 }
 
 .fire.tree-table>.tree-table-item.select {
@@ -210,8 +210,8 @@
 }
 
 .white.tree-table>.tree-table-item:hover {
-    background: black;
-    color: white;
+    background: black !important;
+    color: white !important;
 }
 
 .white.tree-table>.tree-table-item.select {
