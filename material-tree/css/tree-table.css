@@ -59,7 +59,12 @@
     color: black;
 }
 
-.sky.tree-table>.tree-table-item:nth-child(even) {
+.sky.tree-table:not(.alternate)>.tree-table-item:nth-child(even) {
+    background: #b3e5fc;
+    color: black;
+}
+
+.sky.tree-table.alternate>.tree-table-item:nth-child(even) {
     background: #e6ffff;
     color: black;
 }
@@ -82,7 +87,12 @@
     color: white;
 }
 
-.blood.tree-table>.tree-table-item:nth-child(even) {
+.blood.tree-table:not(.alternate)>.tree-table-item:nth-child(even) {
+    background: #d50000;
+    color: white;
+}
+
+.blood.tree-table.alternate>.tree-table-item:nth-child(even) {
     background: #ff5131;
     color: white;
 }
@@ -105,7 +115,12 @@
     color: black;
 }
 
-.grass.tree-table>.tree-table-item:nth-child(even) {
+.grass.tree-table:not(.alternate)>.tree-table-item:nth-child(even) {
+    background: #c8e6c9;
+    color: black;
+}
+
+.grass.tree-table.alternate>.tree-table-item:nth-child(even) {
     background: #fbfffc;
     color: black;
 }
@@ -128,7 +143,12 @@
     color: black;
 }
 
-.water.tree-table>.tree-table-item:nth-child(even) {
+.water.tree-table:not(.alternate)>.tree-table-item:nth-child(even) {
+    background: #659be8;
+    color: black;
+}
+
+.water.tree-table.alternate>.tree-table-item:nth-child(even) {
     background: #9accff;
     color: black;
 }
@@ -151,7 +171,12 @@
     color: black;
 }
 
-.fire.tree-table>.tree-table-item:nth-child(even) {
+.fire.tree-table:not(.alternate)>.tree-table-item:nth-child(even) {
+    background: #fbc02d;
+    color: black;
+}
+
+.fire.tree-table.alternate>.tree-table-item:nth-child(even) {
     background: #fff263;
     color: black;
 }
@@ -165,6 +190,34 @@
     background: #c49000;
     color: white;
     border-left: 3px solid #ff6f00;
+    box-shadow: 1px 1px 10px 49599a;
+    margin-bottom: 2px;
+}
+
+.white.tree-table>.tree-table-item:nth-child(odd) {
+    background: white;
+    color: black;
+}
+
+.white.tree-table:not(.alternate)>.tree-table-item:nth-child(even) {
+    background: white;
+    color: black;
+}
+
+.white.tree-table.alternate>.tree-table-item:nth-child(even) {
+    background: grey;
+    color: black;
+}
+
+.white.tree-table>.tree-table-item:hover {
+    background: black;
+    color: white;
+}
+
+.white.tree-table>.tree-table-item.select {
+    background: grey;
+    color: white;
+    border-left: 3px solid white;
     box-shadow: 1px 1px 10px 49599a;
     margin-bottom: 2px;
 }

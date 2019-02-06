@@ -32,7 +32,7 @@
             padding: 10px;
             border-radius: 10px;
         }
-
+        
         .change>span {
             background: red;
             color: white;
@@ -87,16 +87,28 @@
             <span onclick="isLayered(1)">False</span>
         </div>
         <div class="change">
-                <div>
-                    <h3>Theme
-                    </h3>
-                </div>
-                <span onclick="changeTheme(0)">Sky</span>
-                <span onclick="changeTheme(1)">Blood</span>
-                <span onclick="changeTheme(2)">Grass</span>
-                <span onclick="changeTheme(3)">Water</span>
-                <span onclick="changeTheme(4)">Fire</span>
+            <div>
+                <h3>Theme
+                </h3>
             </div>
+            <span onclick="changeTheme(0, false)">Sky</span>
+            <span onclick="changeTheme(1, false)">Blood</span>
+            <span onclick="changeTheme(2, false)">Grass</span>
+            <span onclick="changeTheme(3, false)">Water</span>
+            <span onclick="changeTheme(4, false)">Fire</span>
+            <span onclick="changeTheme(5, false)">White</span>
+        </div>
+        <div class="change">
+            <div>
+                <h3>Alternate Row Theme</h3>
+            </div>
+            <span onclick="changeTheme(0, true)">Sky</span>
+            <span onclick="changeTheme(1, true)">Blood</span>
+            <span onclick="changeTheme(2, true)">Grass</span>
+            <span onclick="changeTheme(3, true)">Water</span>
+            <span onclick="changeTheme(4, true)">Fire</span>
+            <span onclick="changeTheme(5, true)">White</span>
+        </div>
     </div>
 
     <script type="text/javascript">
@@ -146,7 +158,7 @@
                 icon: null
             }];
         $(".check").tableTree({ data: data, iconTheme: "arrow" });
-
+        var dataT = $(".check")[0].getData();
         var changeFont = function (index) {
             $(".check")[0].className = "check";
             if (index == 0) {
@@ -189,18 +201,21 @@
                 $(".check").tableTree({ data: data, layered: false });
             }
         }
-        var changeTheme = function (index) {
+        var changeTheme = function (index, isAlternateRowEffect) {
             $(".check")[0].className = "check";
             if (index == 0) {
-                $(".check").tableTree({ data: data, colorTheme: "sky" });
+                $(".check").tableTree({ data: data, colorTheme: "sky", isAlternateRowEffect : isAlternateRowEffect });
             } else if (index == 1) {
-                $(".check").tableTree({ data: data, colorTheme: "blood" });
+                $(".check").tableTree({ data: data, colorTheme: "blood", isAlternateRowEffect : isAlternateRowEffect });
             } else if (index == 2) {
-                $(".check").tableTree({ data: data, colorTheme: "grass" });
-            }else if (index == 3) {
-                $(".check").tableTree({ data: data, colorTheme: "water" });
+                $(".check").tableTree({ data: data, colorTheme: "grass", isAlternateRowEffect : isAlternateRowEffect });
+            } else if (index == 3) {
+                $(".check").tableTree({ data: data, colorTheme: "water", isAlternateRowEffect : isAlternateRowEffect });
             } else if (index == 4) {
-                $(".check").tableTree({ data: data, colorTheme: "fire" });
+                $(".check").tableTree({ data: data, colorTheme: "fire", isAlternateRowEffect : isAlternateRowEffect });
+            }
+            else if (index == 5) {
+                $(".check").tableTree({ data: data, colorTheme: "white", isAlternateRowEffect : isAlternateRowEffect });
             }
         }
     </script>

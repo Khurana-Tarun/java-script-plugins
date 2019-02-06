@@ -11,7 +11,8 @@
             iconTheme: "arrow",
             margin: "small", //In Percentage
             data: [],
-            colorTheme: "sky", // sky, grass, water, light, dark
+            colorTheme: "sky", // sky, grass, water, light, dark, white
+            isAlternateRowEffect : false,
             attachKeyboadEvent: true,
             font: "large",
             padding: "small",
@@ -161,6 +162,8 @@
             }
             temp.appendChild(spanElm);
             state.push({ object: temp, level: level });
+            temp.addEventListener("dblclick", onEdit);
+            // temp.addEventListener("mouseout", removeEditButton);
             temp.addEventListener("click", clickHandler);
 
             let padding = (level * margin[settings.margin]);
@@ -176,9 +179,49 @@
             currentSelectedRow = position;
         }
 
+        function onEdit(event) {
+            let tar = event.currentTarget;
+            if (tar.children.length > 2) return;
+            let index = tar.children.length == 2 ? 1 : 0;
+            tar.children[index].style.display = "none";
+            let text = tar.children[index].innerText;
+            let obj = document.createElement("input");
+            obj.setAttribute("type", "text");
+            obj.setAttribute("value", text);
+            tar.appendChild(obj);
+            let temp = document.createElement("i");
+            temp.innerText = "save";
+            temp.classList.add("material-icons");
+            temp.style.marginLeft = "5px";
+            temp.addEventListener("click", onSave);
+            tar.appendChild(temp);
+            obj.focus();
+            obj.addEventListener("keyup", function (event) {
+                if (event.key == "Enter") {
+                    onSave(event);
+                }
+            }, false);
+        }
+
+        function onSave(event) {
+            let parentRow = event.target.parentElement;
+            if (parentRow.children.length == 4) {
+                parentRow.children[1].innerText = parentRow.children[2].value;
+                parentRow.children[1].style.display = "";
+                parentRow.removeChild(parentRow.children[3]);
+                parentRow.removeChild(parentRow.children[2]);
+            } else {
+                parentRow.children[0].innerText = parentRow.children[1].value;
+                parentRow.children[0].style.display = "";
+                parentRow.removeChild(parentRow.children[2]);
+                parentRow.removeChild(parentRow.children[1]);
+            }
+            parentRow.parentElement.focus();
+        }
+
         function keyHandler(event) {
             const keyName = event.key;
-            console.log(keyName);
+            //console.log(keyName);
             currentSelectedRow != -1 ? state[currentSelectedRow].object.classList.remove("select") : "";
             if (keyName === 'ArrowDown' || keyName === 'ArrowRight') {
                 if (currentSelectedRow == -1 || currentSelectedRow == state.length - 1) {
@@ -192,14 +235,16 @@
                 } else {
                     currentSelectedRow--;
                 }
-            }
+            } 
             state[currentSelectedRow].object.classList.add("select");
         }
         parent.innerHTML = "";
         parent.classList.add("tree-table");
         parent.classList.add(settings.colorTheme);
         parent.classList.add(fontSize[settings.font]);
+        settings.isAlternateRowEffect ? parent.classList.add("alternate") : "";
         parent.style.margin = padding[settings.padding];
+        parent.style.padding = padding[settings.padding];
         if (!settings.pointed) {
             parent.style.borderRadius = padding[settings.padding];
         }
@@ -210,6 +255,37 @@
         parent.addEventListener("keyup", keyHandler, false);
         parent.setAttribute("tabindex", 0);
 
+        parent.getData = function () {
+            let obj = [];
+            for (let i = 0; i < state.length; i++) {
+                //console.log(state[i]);
+                if (state[i].level == 0) {
+                    let temp = {};
+                    temp.label = state[i].object.children.length > 1 ? state[i].object.children[1].innerText : state[i].object.children[0].innerText;
+                    temp.icon = null;
+                    //temp.state = state[i].state;
+                    temp.children = getChildNodes(i);
+                    obj.push(temp);
+                }
+            }
+            return obj;
+        };
+
+        function getChildNodes(index) {
+            if (index == state.length) return [];
+            let childIndex = index + 1;
+            let nodes = [];
+            while ((state[index].level + 1) == state[childIndex].level) {
+                let temp = {};
+                temp.label = state[childIndex].object.children.length > 1 ? state[childIndex].object.children[1].innerText : state[childIndex].object.children[0].innerText;
+                temp.icon = null;
+                //temp.state = state[index].state;
+                temp.children = getChildNodes(childIndex);
+                nodes.push(temp);
+                childIndex++;
+            }
+            return nodes;
+        }
     };
 
 }(jQuery));
